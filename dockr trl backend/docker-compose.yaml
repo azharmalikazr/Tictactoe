@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+  tictactoefrntend:
+    build: 
+      context: ./
+    ports:
+      - 9090:9090

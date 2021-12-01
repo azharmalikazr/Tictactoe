@@ -1,0 +1,110 @@
+<body *ngIf="! isLoaded"  >
+  <div class="loading">
+    <span>
+      <mat-card-title style="text-align:center; color: black; font-size: 25px; font-weight: bold;" class="big" id = "textSize" >Tic Tac Toe</mat-card-title><br><br><br>
+    </span>
+  </div>
+</body>
+
+
+
+
+
+
+		
+
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div  *ngIf="isLoaded" class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="container-fluid" style="background-color: rgb(0, 217, 255);">
+          <div class="row">
+            <div class="col-lg-8 col-xl-8">
+              <div class="login-page">
+                <div style="display:flex">
+                    <mat-card class="mat-elevation-z12">
+                      <br><br><br><br><br>
+                      <mat-card-title style="text-align:center;" class="big" id = "textSize">Tic Tac Toe</mat-card-title><br><br><br>
+                      <mat-card-title style="text-align:center;" class="medium" id = "textSize">Game No : {{totalGames}}</mat-card-title><br><br><br>
+                          <!-- <div *ngIf="isHumanTurn" class="big" id = "textSize" > Your Turn</div><br><br> -->
+                        <br><br>
+                        <div class="box" >
+                          <mat-grid-list cols="3" rowHeight="1:1">
+                            <mat-grid-tile 
+                                *ngFor="let tile of tiles; let i = index "
+                                [colspan]="tile.cols"
+                                [rowspan]="tile.rows"
+                                [style.background]="tile.color"
+                                (click)= "setMove(i)">
+                              {{tile.text}}
+                            </mat-grid-tile>
+                          </mat-grid-list>
+                          <div class="example-button-row"  style="align-items: center; display: table; margin-top: 60px;">
+                            <button type="button" class="btn btn-success" mat-raised-button color="accent" (click)="newGame()">NewGame</button>
+                            <!-- <button mat-raised-button color="accent" (click)="newGame()" class="center"><Nav>New Game</Nav></button> -->
+                          </div>
+                        </div>
+                    </mat-card>
+                  </div> 
+              </div>
+            </div>
+            <div class="col-lg-4 col-xl-4" style="margin-top: 3em;">
+              <div class="login-page">
+                <mat-card class="mat-elevation-z12" style="margin-left: 0%;">
+                  <div class="box" style="width: 290px; height: 60px;  margin: auto; " >
+                    <div class = "big" id = "textSize">History  </div><br><br>
+                    <table class="table" id = "textSize" style="margin-top: 0px;" >
+                      <thead>
+                        <tr>
+                          <th>You Won</th>
+                          <th>{{humanWins}}</th>
+                        </tr>
+                        <tr>
+                          <th>Computer Won </th>
+                          <th>{{compWins}}</th>
+                        </tr>
+                        <tr>
+                          <th>Draw</th>
+                          <th>{{drawCount}}</th>
+                        </tr>
+                        <tr>
+                          <th>Left unfinished</th>
+                          <th>{{leftunfinished}}</th>
+                        </tr>
+                      </thead>
+                      
+                    </table>
+                      
+            
+            
+                  </div>
+                </mat-card>
+                      <mat-card class="mat-elevation-z12" style="margin-left: 0%;">
+                        <div class="box" style="width: 290px; height: 60px;  margin: auto; " >
+                          <br><br>
+                          <div class = "big" id = "textSize">Results </div>
+                          <br><br><br>
+                          <div *ngIf="! leftcheck" class="big" id = "textSize"> Left last game </div>
+                          <div *ngIf="isHumanWinner" class = "big" id = "textSize">You Won</div>
+                          <div *ngIf="isComputerWinner" class="big" id = "textSize"> Computer Won</div>
+                          <div *ngIf="isDraw" class="big" id = "textSize"> Game Draw</div>
+                        </div>
+                      </mat-card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="carousel-item">
+        <h1>Hello</h1>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+

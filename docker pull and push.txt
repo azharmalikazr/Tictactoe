@@ -1,0 +1,14 @@
+##################      Push      ###################
+
+sudo docker tag tictacfrnt:latest azrmlik/tictactoe:frontend
+sudo docker push azrmlik/tictactoe:frontend
+
+
+
+
+
+##################      Pull      ###################
+
+sudo docker pull azrmlik/tictactoe:frontend
+
+
